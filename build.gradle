@@ -21,7 +21,6 @@ dependencies {
     compile 'com.squareup.retrofit:adapter-rxjava:2.0.0-beta2'
     compile 'com.fasterxml.jackson.module:jackson-module-kotlin:2.6.3-4'
     compile 'io.reactivex:rxkotlin:0.30.1'
-
     compile 'com.google.guava:guava:19.0-rc3'
 }
 
@@ -36,5 +35,5 @@ buildscript {
 }
 
 sourceSets {
-    main.java.srcDirs += 'src/pounces.komrade.main/kotlin'
+    main.java.srcDirs += 'src/main/kotlin'
 }
