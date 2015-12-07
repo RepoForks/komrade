@@ -2,6 +2,8 @@ package pounces.komrade.bot
 
 import pounces.komrade.api.Telegram
 import pounces.komrade.api.data.Message
+import pounces.komrade.bot.dsl.Command
+import pounces.komrade.bot.dsl.CommandInvocationParser
 import pounces.komrade.parallel
 import rx.Observable
 import rx.schedulers.Schedulers
@@ -61,34 +63,8 @@ class Komrade(val telegram: Telegram, val commands: Set<Command>) {
 
                             val command = builder.commands.firstOrNull { it.name == commandToFind }
 
-                            // TODO it's Command's responsibility to generate this text, not this class'
                             if (command != null) {
-                                var output = command.toString()
-
-                                if (command.description.isNotBlank()) {
-                                    output += "\n\n"
-                                    output += command.description
-                                }
-
-                                if (command.parameters.isNotEmpty() || command.optionalParameters.isNotEmpty()) {
-                                    output += "\n\n"
-                                }
-
-                                if (command.parameters.isNotEmpty()) {
-                                    output += command.parameters.map {
-                                        it.name + " - " + it.typeDescription +
-                                                if (it.description.isNotBlank()) ": " + it.description else ""
-                                    }.joinToString("\n") + "\n"
-                                }
-
-                                if (command.optionalParameters.isNotEmpty()) {
-                                    output += command.optionalParameters.map {
-                                        it.name + " (Optional) - " + it.typeDescription +
-                                                if (it.description.isNotBlank()) ": " + it.description else ""
-                                    }.joinToString("\n") + "\n"
-                                }
-
-                                output
+                                command.helpText()
                             } else {
                                 "Sorry, but the command $commandToFind does not exist."
                             }
