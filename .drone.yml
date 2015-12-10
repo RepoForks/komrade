@@ -1,4 +1,5 @@
 build:
   image: jeanblanchard/java:jdk-8
   commands:
+    - apk add --update bash && rm -rf /var/cache/apk/*
     - ./gradlew build
