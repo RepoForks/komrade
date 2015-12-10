@@ -42,4 +42,8 @@ sourceSets {
     main.java.srcDirs += 'src/main/kotlin'
 }
 
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.9'
+}
+
 dokka {}
