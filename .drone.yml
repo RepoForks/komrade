@@ -1,0 +1,4 @@
+build:
+  image: jeanblanchard/java:jdk-8
+  commands:
+    - ./gradlew build
