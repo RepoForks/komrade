@@ -3,7 +3,7 @@ build:
   environment:
       - GRADLE_USER_HOME=gradle
   commands:
-    - cp -r /root/.gradle gradle
+    - cp -vr /root/.gradle gradle
     - ./gradlew build
 
 cache:
