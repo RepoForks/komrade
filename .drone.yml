@@ -5,4 +5,4 @@ build:
 
 cache:
   mount:
-    - .gradle/caches
+    - /root/.gradle/caches
