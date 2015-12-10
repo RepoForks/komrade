@@ -7,7 +7,6 @@ import pounces.komrade.bot.dsl.CommandInvocationParser
 import pounces.komrade.parallel
 import rx.Observable
 import rx.schedulers.Schedulers
-import java.util.*
 
 
 class Komrade(val telegram: Telegram, val commands: Set<Command>) {
@@ -78,17 +77,9 @@ class Komrade(val telegram: Telegram, val commands: Set<Command>) {
             return komrade
         }
     }
-}
 
-class KomradeBuilder {
-    val commands = HashSet<Command>()
+    fun Command.create() {
 
-    fun command(name: String, block: Command.() -> Unit) {
-        val command = Command(name)
-        command.block()
-        if (commands.contains(command)) {
-            throw IllegalStateException("Command ${command.name} has been defined twice")
-        }
-        commands.add(command)
     }
 }
+

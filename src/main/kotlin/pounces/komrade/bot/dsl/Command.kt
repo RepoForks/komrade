@@ -7,6 +7,9 @@ import pounces.komrade.bot.dsl.parameters.Parameter
 import java.util.*
 import kotlin.text.Regex
 
+/**
+ * Represents a command that can be executed by a Telegram user.
+ */
 class Command(val name: String) {
     var description: String = ""
     var shortDescription: String = ""

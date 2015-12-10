@@ -3,6 +3,7 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'kotlin'
+apply plugin: 'org.jetbrains.dokka'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -26,14 +27,21 @@ dependencies {
 
 buildscript {
     ext.kotlin_version = '1.0.0-beta-3594'
+
     repositories {
         mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.dokka:dokka-gradle-plugin:0.9.3"
     }
 }
 
 sourceSets {
     main.java.srcDirs += 'src/main/kotlin'
+}
+
+dokka {
+
 }
