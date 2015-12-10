@@ -1,5 +1,5 @@
 build:
-  image: jeanblanchard/java:jdk-8
+  image: drone-jdk8-gradle
   environment:
       - GRADLE_USER_HOME=gradle_home
   commands:
