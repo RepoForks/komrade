@@ -2,3 +2,7 @@ build:
   image: drone-jdk8-gradle
   commands:
     - ./gradlew build
+
+cache:
+  mount:
+    - .gradle/caches
