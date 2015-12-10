@@ -1,11 +1,10 @@
 build:
-  image: drone-jdk8-gradle
+  image: jeanblanchard/java:jdk-8
   environment:
-      - GRADLE_USER_HOME=gradle
+      - GRADLE_USER_HOME=gradle_home
   commands:
-    - cp -vr /root/.gradle gradle
     - ./gradlew build
 
 cache:
   mount:
-    - gradle/caches
+    - gradle_home
