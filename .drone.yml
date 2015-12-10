@@ -1,5 +1,4 @@
 build:
-  image: jeanblanchard/java:jdk-8
+  image: drone-jdk8-gradle
   commands:
-    - apk add --update bash ca-certificates && rm -rf /var/cache/apk/*
     - ./gradlew build
